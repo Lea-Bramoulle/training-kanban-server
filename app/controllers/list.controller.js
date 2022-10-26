@@ -1,5 +1,5 @@
 async function getAllLists(req, res) {
-  res.json({ message: "Coucou get all Lists" });
+  res.json({ message: 'Coucou get all Lists' });
 }
 
 module.exports = {

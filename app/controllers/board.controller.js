@@ -1,5 +1,5 @@
 async function getAllBoards(req, res) {
-  res.json({ message: "Coucou get all boards" });
+  res.json({ message: 'Coucou get all boards' });
 }
 
 module.exports = {

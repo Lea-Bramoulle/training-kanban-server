@@ -1,10 +1,10 @@
-const { Router } = require("express");
+const { Router } = require('express');
 
-const boardRouter = require("./board.router");
-const listRouter = require("./list.router");
-const taskRouter = require("./task.router");
-const subTaskRouter = require("./subTask.router");
-const labelRouter = require("./label.router");
+const boardRouter = require('./board.router');
+const listRouter = require('./list.router');
+const taskRouter = require('./task.router');
+const subTaskRouter = require('./subTask.router');
+const labelRouter = require('./label.router');
 
 const mainRouter = new Router();
 
