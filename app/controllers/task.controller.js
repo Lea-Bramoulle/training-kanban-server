@@ -28,7 +28,7 @@ async function getOneTask(req, res) {
     if (!task) {
       res
         .status(404)
-        .send({ error: 'Card not found. Please verify the provided id.' });
+        .send({ error: 'Task not found. Please verify the provided id.' });
       return;
     }
 
