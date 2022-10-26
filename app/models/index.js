@@ -26,7 +26,7 @@ List.belongsTo(Board, {
 
 List.hasMany(Task, {
   as: 'tasks',
-  foreignKey: 'list',
+  foreignKey: 'list_id',
 });
 
 Task.belongsTo(List, {
