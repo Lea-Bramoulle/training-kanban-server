@@ -1,14 +1,9 @@
 /* eslint-disable no-restricted-globals */
-const { List } = require('../models');
+const { List, Task } = require('../models');
 
 async function getAllLists(req, res) {
   try {
-    const boards = await List.findAll({
-      order: [
-        ['position', 'ASC'],
-        ['created_at', 'ASC'],
-      ],
-    });
+    const boards = await List.findAll();
     res.json(boards);
   } catch (error) {
     console.log(error);
@@ -53,6 +48,17 @@ async function getAllListsOfOneBoard(req, res) {
 
   const listsOfBoardId = await List.findAll({
     where: { board_id: boardId },
+    order: [
+      ['position', 'ASC'],
+      ['created_at', 'ASC'],
+    ],
+    include: [
+      {
+        model: Task,
+        as: 'tasks',
+        include: ['subtasks', 'labels'],
+      },
+    ],
   });
 
   res.json(listsOfBoardId);

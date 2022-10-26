@@ -53,7 +53,7 @@ Subtask.belongsTo(Task, {
 
 Task.belongsToMany(Label, {
   as: 'labels',
-  through: 'task_has_mabel',
+  through: 'task_has_label',
   foreignKey: 'task_id',
   otherKey: 'label_id',
   timestamps: false,
@@ -61,7 +61,7 @@ Task.belongsToMany(Label, {
 
 Label.belongsToMany(Task, {
   as: 'tasks',
-  through: 'task_has_mabel',
+  through: 'task_has_label',
   foreignKey: 'label_id',
   otherKey: 'task_id',
   timestamps: false,

@@ -21,7 +21,9 @@ async function getOneTask(req, res) {
   }
 
   try {
-    const task = await Task.findByPk(taskId);
+    const task = await Task.findByPk(taskId, {
+      include: ['subtasks', 'labels'],
+    });
 
     if (!task) {
       res
