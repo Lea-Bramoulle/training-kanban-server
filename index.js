@@ -4,10 +4,10 @@ const app = express();
 
 const router = require('./app/routers/index');
 
-app.use(router);
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(router);
 
 app.use(express.static('public'));
 
