@@ -64,19 +64,12 @@ async function getAllTasksOfOneList(req, res) {
 }
 
 async function createTask(req, res) {
-  const { name, position, description, list_id } = req.body;
+  const { name, description, list_id } = req.body;
 
   if (!name) {
     res
       .status(400)
       .json({ error: "Missing body (or empty) parameter: 'name'." });
-    return;
-  }
-
-  if (!position && isNaN(Number(position))) {
-    res
-      .status(400)
-      .json({ error: "Missing body (or empty) parameter: 'position'." });
     return;
   }
 
@@ -95,9 +88,11 @@ async function createTask(req, res) {
   }
 
   try {
+    const taskPosition = (await Task.count()) + 1;
+
     const task = await Task.create({
       name,
-      position: Number(position),
+      position: taskPosition,
       description,
       list_id: Number(list_id),
     });
