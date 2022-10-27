@@ -67,19 +67,12 @@ async function getAllListsOfOneBoard(req, res) {
 }
 
 async function createList(req, res) {
-  const { name, position, color, board_id } = req.body;
+  const { name, color, board_id } = req.body;
 
   if (!name) {
     res
       .status(400)
       .json({ error: "Missing body (or empty) parameter: 'name'." });
-    return;
-  }
-
-  if (!position && isNaN(Number(position))) {
-    res
-      .status(400)
-      .json({ error: "Missing body (or empty) parameter: 'position'." });
     return;
   }
 
@@ -99,9 +92,11 @@ async function createList(req, res) {
   }
 
   try {
+    const listPosition = (await List.count()) + 1;
+
     const list = await List.create({
       name,
-      position: Number(position),
+      position: listPosition,
       color,
       board_id: Number(board_id),
     });
