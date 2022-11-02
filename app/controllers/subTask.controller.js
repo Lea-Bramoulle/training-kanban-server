@@ -120,9 +120,7 @@ async function updateSubtask(req, res) {
       subtask.description = req.body.description;
     }
 
-    if (req.body.is_done) {
-      subtask.is_done = req.body.is_done;
-    }
+    subtask.is_done = req.body.is_done;
 
     await subtask.save();
 

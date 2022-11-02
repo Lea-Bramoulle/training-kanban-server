@@ -11,8 +11,9 @@ VALUES
 INSERT INTO "list" (id, name, color, position, board_id)
 VALUES 
     (1, 'To do', '49C4E5', 0, 1),
-    (2, 'Doing', '49C4E5', 1, 1),
-    (3, 'Done', '49C4E5', 1, 1)
+    (2, 'Doing', '8471F2', 1, 1),
+    (3, 'Done', '67E2AE', 1, 1),
+    (4, 'Idéation', 'A9A3F9', 1, 1)
 ;
 
 INSERT INTO "task" (id, name, description, position, list_id)
